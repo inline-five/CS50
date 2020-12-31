@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    C$50 Finance
+{% endblock %}
+
+
+{% block main %}
+
+
+<table class="table table-striped">
+  <thead>
+    <tr align="left">
+      <th>Symbol</th>
+      <th>Name</th>
+      <th>Shares</th>
+      <th>Price</th>
+      <th>TOTAL</th>
+    </tr>
+  </thead>
+  <tfoot>
+      <td colspan="4"></td>
+      <td align="left" class="Bold">{{ "$%.2f"|format(holdings_value + cash_available) }}</td>
+
+  </tfoot>
+  <tbody>
+            {% for stock in holdings_lookup %}
+            <tr align="left">
+            <td>{{ stock["symbol"] }}</td>
+            <td>{{ stock["name"] }}</td>
+            <td>{{ stock["total_shares"] }}</td>
+            <td>{{ "$%.2f"|format(stock["price"]) }}</td>
+            <td>{{ "$%.2f"|format(stock["total_shares"] * stock["price"])}}</td>
+            </tr>
+            {% endfor %}
+           <tr align="left">
+               <td colspan="4">CASH</td>
+               <td>{{ "$%.2f"|format(cash_available) }}</td>
+           </tr>
+    </tbody>
+    </table>
+
+
+{% endblock %}

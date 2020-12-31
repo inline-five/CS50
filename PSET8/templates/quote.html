@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    {% if quoted == 1 %}
+    <p></p>
+    <div>A share of {{ quote["name"] }} ({{ quote["symbol"] }}) is {{ quote["price"] }}.</div>
+
+    {% else %}
+    <p></p>
+    <div> <form action="/quote" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form></div>
+    {% endif %}
+
+{% endblock %}

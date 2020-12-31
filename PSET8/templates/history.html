@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    C$50 Finance
+{% endblock %}
+
+{% block main %}
+    <div>
+<table class="table table-striped">
+  <thead>
+    <tr align="left">
+      <th scope="col">Symbol</th>
+      <th scope="col">Shares</th>
+      <th scope="col">Price</th>
+      <th scope="col">Transacted</th>
+    </tr>
+  </thead>
+  <tbody>
+            {% for stock in trade_history_query %}
+            <tr align="left">
+            <td>{{ stock["symbol"] }}</td>
+        {% if stock["bought_sold"] == "b" %}
+            <td>{{ stock["num_shares"] }}</td>
+        {% else %}
+            <td>{{ - stock["num_shares"] }}</td>
+        {% endif %}
+            <td>{{ "$%.2f"|format(stock["execute_price"]) }}</td>
+            <td>{{ stock["timestamp"] }}</td>
+            </tr>
+            {% endfor %}
+    </tbody>
+    </table>
+
+
+    </div>
+{% endblock %}

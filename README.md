@@ -1,5 +1,7 @@
 # Solutions to Harvard's 2020 CS50x program
 
+// https://cs50.me/cs50x
+
 // PSET 1 (C) cash.c credit.c mario.c
 
 // PSET 2 (C) caesar.c readability.c substituion.c

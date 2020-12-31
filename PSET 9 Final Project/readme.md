@@ -1,1 +1,0 @@
-This is a logbook import program written in Python. It takes information for my airline's scheduling export from CSV format and parses in into a format that can be used to import into my logbook. Since I log daily and the flight information is done by flight and often contains duplicates and null values, the source data must be checked first and then added up in a daily fashion.

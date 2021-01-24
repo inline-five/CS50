@@ -12,7 +12,6 @@ void print_years(int start_pop, int end_pop);
 
 int main(void)
 {
-    // TODO: Prompt for start size
 
     int start_pop = get_start_population();
     int end_pop = get_end_population(start_pop);
